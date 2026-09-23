@@ -1,1 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autoescola Nova Tebas - Formação de Condutores</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .hero {
+      background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+      color: white;
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: white;
+      transform: skewY(-2deg);
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-weight: 700;
+      font-size: 3rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+    .btn-hero {
+      background-color: #ffc107;
+      color: #1a1a2e;
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 50px;
+      transition: all 0.3s;
+      border: none;
+    }
+    .btn-hero:hover {
+      background-color: #e0a800;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .section-title {
+      font-weight: 700;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    .card-service {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+      height: 100%;
+    }
+    .card-service:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+    .card-service .icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    .stats {
+      background: var(--light);
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .cta {
+      background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+      color: white;
+      border-radius: 20px;
+      padding: 50px 30px;
+    }
+    footer {
+      background-color: var(--dark);
+      color: #ccc;
+      padding: 50px 0 20px;
+      font-size: 0.9rem;
+    }
+    footer h5 {
+      color: white;
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    footer a {
+      color: #ffc107;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      margin-top: 30px;
+    }
+    .privacy-link {
+      color: #ffc107 !important;
+      font-weight: 600;
+    }
+    .privacy-link:hover {
+      color: #fff !important;
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero {
+        padding: 70px 0 60px;
+      }
+    }
+  </style>
+</head>
+<body>
 
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <i class="fas fa-car text-primary me-2"></i>
+        Autoescola <span class="text-primary">Nova Tebas</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+          <li class="nav-item ms-2">
+            <a class="btn btn-primary rounded-pill px-4" href="https://wa.me/5542999054000" target="_blank">
+              <i class="fab fa-whatsapp me-1"></i> Matricule-se
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container text-center">
+      <h1 class="mb-4">Sua Habilitação Começa Aqui!</h1>
+      <p class="mb-5 mx-auto" style="max-width: 700px;">
+        Realize o sonho da sua carteira de motorista com a Autoescola Nova Tebas. 
+        Aulas práticas e teóricas com profissionais qualificados e veículos modernos.
+      </p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="https://wa.me/5542999054000" class="btn btn-hero btn-lg" target="_blank">
+          <i class="fab fa-whatsapp me-2"></i> Fale Conosco
+        </a>
+        <a href="#servicos" class="btn btn-outline-light btn-lg rounded-pill px-4">
+          Nossos Serviços <i class="fas fa-arrow-down ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <p class="text-muted mt-4">Oferecemos formação completa para todas as categorias de habilitação.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card card-service p-4 text-center">
+            <div class="icon"><i class="fas fa-car"></i></div>
+            <h4>Categoria B</h4>
+            <p class="text-muted">Habilitação para carros de passeio. Aulas práticas e teóricas com instrutores experientes.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-service p-4 text-center">
+            <div class="icon"><i class="fas fa-motorcycle"></i></div>
+            <h4>Categoria A</h4>
+            <p class="text-muted">Habilitação para motocicletas. Curso completo com foco em segurança e prática.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-service p-4 text-center">
+            <div class="icon"><i class="fas fa-truck"></i></div>
+            <h4>Categoria C e D</h4>
+            <p class="text-muted">Para veículos de carga e transporte de passageiros. Formação profissional completa.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-service p-4 text-center">
+            <div class="icon"><i class="fas fa-book-open"></i></div>
+            <h4>Curso Teórico</h4>
+            <p class="text-muted">Aulas teóricas presenciais e online com material didático atualizado.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-service p-4 text-center">
+            <div class="icon"><i class="fas fa-sync-alt"></i></div>
+            <h4>Reciclagem</h4>
+            <p class="text-muted">Curso de reciclagem para motoristas com CNH suspensa ou cassada.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-service p-4 text-center">
+            <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+            <h4>Aulas Extras</h4>
+            <p class="text-muted">Aulas práticas adicionais para quem precisa de mais confiança ao volante.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Estatísticas -->
+  <section class="stats py-5">
+    <div class="container">
+      <div class="row text-center g-4">
+        <div class="col-6 col-md-3">
+          <div class="stat-number">+15</div>
+          <p class="text-muted mb-0">Anos de Experiência</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-number">+2000</div>
+          <p class="text-muted mb-0">Alunos Formados</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-number">98%</div>
+          <p class="text-muted mb-0">Aprovação</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-number">100%</div>
+          <p class="text-muted mb-0">Satisfação</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre" class="py-5">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <h2 class="section-title mb-4" style="display: inline-block;">Sobre Nós</h2>
+          <p class="text-muted mt-4">
+            A <strong>Autoescola Nova Tebas</strong> é referência na formação de condutores na região de Nova Tebas, Paraná. 
+            Com anos de experiência, oferecemos um ensino de qualidade, com instrutores capacitados e veículos modernos 
+            e seguros.
+          </p>
+          <p class="text-muted">
+            Nosso compromisso é formar motoristas conscientes e responsáveis, preparados para enfrentar o trânsito 
+            com segurança e confiança.
+          </p>
+          <ul class="list-unstyled mt-4">
+            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Instrutores qualificados</li>
+            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Veículos modernos e revisados</li>
+            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Horários flexíveis</li>
+            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Atendimento personalizado</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+               alt="Aula de direção" class="img-fluid rounded-4 shadow">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5">
+    <div class="container">
+      <div class="cta text-center">
+        <h2 class="fw-bold mb-3">Pronto para começar?</h2>
+        <p class="mb-4">Entre em contato agora mesmo e garanta sua matrícula com condições especiais!</p>
+        <a href="https://wa.me/5542999054000" class="btn btn-hero btn-lg" target="_blank">
+          <i class="fab fa-whatsapp me-2"></i> (42) 99905-4000
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Entre em Contato</h2>
+        <p class="text-muted mt-4">Estamos à disposição para tirar suas dúvidas.</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm p-4 text-center h-100">
+            <i class="fas fa-phone-alt fa-2x text-primary mb-3"></i>
+            <h5>Telefone</h5>
+            <p class="text-muted mb-1">(42) 99905-4000</p>
+            <a href="tel:+5542999054000" class="btn btn-outline-primary btn-sm mt-2">Ligar</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm p-4 text-center h-100">
+            <i class="fas fa-envelope fa-2x text-primary mb-3"></i>
+            <h5>E-mail</h5>
+            <p class="text-muted mb-1">oliveiratetel@hotmail.com</p>
+            <a href="mailto:oliveiratetel@hotmail.com" class="btn btn-outline-primary btn-sm mt-2">Enviar E-mail</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm p-4 text-center h-100">
+            <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
+            <h5>Endereço</h5>
+            <p class="text-muted mb-1">Rua Copacabana, 300 - Sala 2<br>Centro - Nova Tebas/PR</p>
+            <a href="https://maps.google.com/?q=Rua+Copacabana+300+Nova+Tebas+PR" target="_blank" class="btn btn-outline-primary btn-sm mt-2">Ver no Mapa</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <!-- Coluna 1: Informações de Registro -->
+        <div class="col-lg-4 col-md-6">
+          <h5><i class="fas fa-building me-2"></i>Informações de Registro</h5>
+          <p class="mb-1"><strong>CNPJ:</strong> 67.293.941/0001-31</p>
+          <p class="mb-1"><strong>Razão Social:</strong> Auto Escola Nova Tebas LTDA</p>
+          <p class="mb-1"><strong>Nome Fantasia:</strong> Autoescola Nova Tebas</p>
+        </div>
+
+        <!-- Coluna 2: Contatos -->
+        <div class="col-lg-4 col-md-6">
+          <h5><i class="fas fa-address-book me-2"></i>Contatos</h5>
+          <p class="mb-1">
+            <i class="fas fa-envelope me-2"></i>
+            <a href="mailto:oliveiratetel@hotmail.com">oliveiratetel@hotmail.com</a>
+          </p>
+          <p class="mb-1">
+            <i class="fas fa-phone me-2"></i>
+            <a href="tel:+5542999054000">(42) 99905-4000</a> (Ligar)
+          </p>
+          <p class="mb-1">
+            <i class="fab fa-whatsapp me-2"></i>
+            <a href="https://wa.me/5542999054000" target="_blank">(42) 99905-4000</a> (WhatsApp)
+          </p>
+        </div>
+
+        <!-- Coluna 3: Localização -->
+        <div class="col-lg-4 col-md-6">
+          <h5><i class="fas fa-map-pin me-2"></i>Localização</h5>
+          <p class="mb-1"><strong>Logradouro:</strong> Rua Copacabana, 300</p>
+          <p class="mb-1"><strong>Complemento:</strong> Sala 2</p>
+          <p class="mb-1"><strong>Bairro:</strong> Centro</p>
+          <p class="mb-1"><strong>CEP:</strong> 85250-000</p>
+          <p class="mb-1"><strong>Município:</strong> Nova Tebas</p>
+          <p class="mb-1"><strong>Estado:</strong> Paraná</p>
+        </div>
+      </div>
+
+      <!-- Correspondência -->
+      <div class="row mt-4">
+        <div class="col-12">
+          <h5><i class="fas fa-mail-bulk me-2"></i>Para Correspondência</h5>
+          <p class="mb-0">
+            Autoescola Nova Tebas Auto Escola Nova Tebas LTDA<br>
+            Rua Copacabana 300 Sala 2<br>
+            Centro<br>
+            Nova Tebas PR<br>
+            85250-000
+          </p>
+        </div>
+      </div>
+
+      <!-- Rodapé inferior -->
+      <div class="footer-bottom text-center">
+        <p class="mb-1">
+          &copy; 2026 Autoescola Nova Tebas - Todos os direitos reservados.
+        </p>
+        <p class="mb-0">
+          <a href="#" class="privacy-link" data-bs-toggle="modal" data-bs-target="#politicaPrivacidade">
+            <i class="fas fa-shield-alt me-1"></i> Política de Privacidade
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Política de Privacidade -->
+  <div class="modal fade" id="politicaPrivacidade" tabindex="-1" aria-labelledby="politicaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="politicaLabel"><i class="fas fa-shield-alt me-2"></i>Política de Privacidade</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Última atualização:</strong> 23 de setembro de 2026</p>
+          <p>A <strong>Autoescola Nova Tebas</strong>, inscrita no CNPJ 67.293.941/0001-31, valoriza a sua privacidade e está comprometida em proteger os dados pessoais que você compartilha conosco.</p>
+          
+          <h6>1. Coleta de Informações</h6>
+          <p>Coletamos apenas as informações necessárias para prestação dos nossos serviços de formação de condutores, como nome, e-mail, telefone, endereço e documentos exigidos pelos órgãos de trânsito.</p>
+          
+          <h6>2. Uso das Informações</h6>
+          <p>Seus dados são utilizados exclusivamente para:</p>
+          <ul>
+            <li>Processar matrículas e documentos junto ao DETRAN;</li>
+            <li>Entrar em contato sobre aulas, agendamentos e informações relevantes;</li>
+            <li>Cumprir obrigações legais e regulatórias.</li>
+          </ul>
+          
+          <h6>3. Compartilhamento de Dados</h6>
+          <p>Não vendemos ou compartilhamos seus dados com terceiros, exceto quando necessário para cumprimento de exigências legais junto aos órgãos competentes (DETRAN, Receita Federal, etc.).</p>
+          
+          <h6>4. Segurança</h6>
+          <p>Adotamos medidas técnicas e administrativas para proteger seus dados contra acessos não autorizados, perda ou alteração.</p>
+          
+          <h6>5. Seus Direitos</h6>
+          <p>Você pode solicitar a qualquer momento a consulta, correção ou exclusão dos seus dados pessoais, entrando em contato pelo e-mail <a href="mailto:oliveiratetel@hotmail.com">oliveiratetel@hotmail.com</a> ou pelo telefone (42) 99905-4000.</p>
+          
+          <h6>6. Cookies</h6>
+          <p>Nosso site pode utilizar cookies para melhorar a experiência de navegação. Você pode desativá-los nas configurações do seu navegador.</p>
+          
+          <h6>7. Alterações nesta Política</h6>
+          <p>Reservamo-nos o direito de atualizar esta política periodicamente. Recomendamos que você a revise regularmente.</p>
+          
+          <p class="mt-4">Ao utilizar nossos serviços, você concorda com os termos desta Política de Privacidade.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
