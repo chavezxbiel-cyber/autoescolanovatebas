@@ -1,965 +1,272 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Autoescola Nova Tebas - Formação de Condutores</title>
-  <meta name="description" content="Autoescola Nova Tebas - Prepare-se para conquistar sua CNH. Aulas teóricas e práticas, primeira habilitação e orientação durante todo o processo.">
-  
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --primary: #1e40af;
-      --primary-dark: #1e3a8a;
-      --accent: #3b82f6;
-      --dark: #0f172a;
-      --gray: #64748b;
-      --light: #f8fafc;
-      --border: #e2e8f0;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--dark);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4, h5 { font-weight: 700; letter-spacing: -0.02em; }
-
-    /* ===== NAVBAR ===== */
-    .navbar {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 0;
-      transition: all 0.3s;
-    }
-    .navbar-brand {
-      font-weight: 800;
-      font-size: 1.25rem;
-      color: var(--dark) !important;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .navbar-brand .logo-icon {
-      width: 38px;
-      height: 38px;
-      background: var(--primary);
-      color: white;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-    }
-    .nav-link {
-      font-weight: 500;
-      color: var(--gray) !important;
-      margin: 0 0.5rem;
-      transition: color 0.2s;
-    }
-    .nav-link:hover { color: var(--primary) !important; }
-    .btn-nav-cta {
-      background: var(--primary);
-      color: white;
-      font-weight: 600;
-      border-radius: 50px;
-      padding: 0.5rem 1.5rem;
-      border: none;
-      transition: all 0.3s;
-    }
-    .btn-nav-cta:hover {
-      background: var(--primary-dark);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      padding: 80px 0 100px;
-      background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -150px;
-      left: -100px;
-      width: 350px;
-      height: 350px;
-      background: radial-gradient(circle, rgba(30,64,175,0.1) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .hero .container { position: relative; z-index: 2; }
-    .hero-badge {
-      display: inline-block;
-      background: white;
-      color: var(--primary);
-      font-weight: 600;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 8px 18px;
-      border-radius: 50px;
-      border: 1px solid var(--border);
-      margin-bottom: 24px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      color: var(--dark);
-    }
-    .hero h1 .highlight {
-      color: var(--primary);
-      position: relative;
-    }
-    .hero p.lead {
-      font-size: 1.15rem;
-      color: var(--gray);
-      margin-bottom: 32px;
-      max-width: 600px;
-    }
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .btn-primary-custom {
-      background: var(--primary);
-      color: white;
-      font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 50px;
-      border: none;
-      transition: all 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-primary-custom:hover {
-      background: var(--primary-dark);
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(30,64,175,0.3);
-    }
-    .btn-outline-custom {
-      background: white;
-      color: var(--dark);
-      font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 50px;
-      border: 1px solid var(--border);
-      transition: all 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-outline-custom:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-      transform: translateY(-3px);
-    }
-
-    /* ===== JORNADA ===== */
-    .journey {
-      padding: 60px 0;
-      background: white;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .journey h3 {
-      font-size: 1.5rem;
-      margin-bottom: 24px;
-      color: var(--dark);
-    }
-    .journey-list {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px 32px;
-    }
-    .journey-list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 500;
-      color: var(--dark);
-    }
-    .journey-list li i {
-      color: #10b981;
-      font-size: 1.1rem;
-    }
-
-    /* ===== SEÇÕES ===== */
-    section { padding: 90px 0; }
-    .section-tag {
-      display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      color: var(--dark);
-    }
-    .section-subtitle {
-      font-size: 1.1rem;
-      color: var(--gray);
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    /* ===== CARDS SERVIÇOS ===== */
-    .card-service {
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px 28px;
-      transition: all 0.3s;
-      height: 100%;
-      background: white;
-    }
-    .card-service:hover {
-      border-color: var(--accent);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(30,64,175,0.1);
-    }
-    .card-service .icon-box {
-      width: 56px;
-      height: 56px;
-      background: #eff6ff;
-      color: var(--primary);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-    }
-    .card-service h4 {
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-      color: var(--dark);
-    }
-    .card-service p {
-      color: var(--gray);
-      margin: 0;
-      font-size: 0.95rem;
-    }
-
-    /* ===== SOBRE ===== */
-    .about-section {
-      background: var(--light);
-      border-radius: 24px;
-      padding: 60px 50px;
-    }
-    .about-list {
-      list-style: none;
-      padding: 0;
-      margin-top: 24px;
-    }
-    .about-list li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 0;
-      font-weight: 500;
-      color: var(--dark);
-    }
-    .about-list li i {
-      color: #10b981;
-      font-size: 1.1rem;
-    }
-    .badge-pill-custom {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: white;
-      padding: 12px 20px;
-      border-radius: 50px;
-      border: 1px solid var(--border);
-      font-weight: 600;
-      color: var(--dark);
-      font-size: 0.9rem;
-      margin: 4px;
-    }
-    .badge-pill-custom i { color: var(--primary); }
-
-    /* ===== PASSOS ===== */
-    .step-card {
-      position: relative;
-      padding: 32px 24px;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      height: 100%;
-      transition: all 0.3s;
-    }
-    .step-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(30,64,175,0.1);
-    }
-    .step-number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--accent);
-      opacity: 0.3;
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-    .step-card h4 {
-      font-size: 1.15rem;
-      margin-bottom: 10px;
-    }
-    .step-card p {
-      color: var(--gray);
-      font-size: 0.95rem;
-      margin: 0;
-    }
-
-    /* ===== FAQ ===== */
-    .faq-section { background: var(--light); }
-    .accordion-item {
-      border: 1px solid var(--border);
-      border-radius: 12px !important;
-      margin-bottom: 12px;
-      overflow: hidden;
-      background: white;
-    }
-    .accordion-button {
-      font-weight: 600;
-      color: var(--dark);
-      padding: 20px 24px;
-      background: white;
-      border: none;
-      font-size: 1rem;
-    }
-    .accordion-button:not(.collapsed) {
-      background: white;
-      color: var(--primary);
-      box-shadow: none;
-    }
-    .accordion-button:focus {
-      box-shadow: none;
-      border-color: transparent;
-    }
-    .accordion-body {
-      color: var(--gray);
-      padding: 0 24px 24px;
-      font-size: 0.95rem;
-    }
-
-    /* ===== CTA FINAL ===== */
-    .cta-final {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: white;
-      border-radius: 24px;
-      padding: 70px 40px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-final::before {
-      content: '';
-      position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 250px;
-      height: 250px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 50%;
-    }
-    .cta-final h2 {
-      font-size: 2.2rem;
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 2;
-    }
-    .cta-final p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      margin-bottom: 32px;
-      position: relative;
-      z-index: 2;
-    }
-    .btn-cta-white {
-      background: white;
-      color: var(--primary);
-      font-weight: 700;
-      padding: 16px 36px;
-      border-radius: 50px;
-      border: none;
-      transition: all 0.3s;
-      position: relative;
-      z-index: 2;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.05rem;
-    }
-    .btn-cta-white:hover {
-      background: #f1f5f9;
-      color: var(--primary-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    }
-
-    /* ===== CONTATO CARDS ===== */
-    .contact-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      height: 100%;
-      transition: all 0.3s;
-    }
-    .contact-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
-      box-shadow: 0 15px 30px rgba(30,64,175,0.08);
-    }
-    .contact-card .icon-circle {
-      width: 60px;
-      height: 60px;
-      background: #eff6ff;
-      color: var(--primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      margin: 0 auto 20px;
-    }
-    .contact-card h5 { margin-bottom: 10px; font-size: 1.1rem; }
-    .contact-card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 16px; }
-
-    /* ===== RODAPÉ ===== */
-    footer {
-      background: var(--dark);
-      color: #94a3b8;
-      padding: 70px 0 30px;
-      font-size: 0.9rem;
-    }
-    footer h5 {
-      color: white;
-      font-weight: 700;
-      font-size: 1.05rem;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    footer h5 i { color: var(--accent); }
-    footer p { margin-bottom: 8px; line-height: 1.6; }
-    footer a {
-      color: #cbd5e1;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    footer a:hover { color: white; text-decoration: underline; }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 24px;
-      margin-top: 40px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-    .privacy-link {
-      color: var(--accent) !important;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .privacy-link:hover { color: white !important; }
-
-    /* ===== RESPONSIVO ===== */
-    @media (max-width: 991px) {
-      .hero h1 { font-size: 2.5rem; }
-      .section-title { font-size: 2rem; }
-      .about-section { padding: 40px 25px; }
-    }
-    @media (max-width: 767px) {
-      .hero { padding: 50px 0 70px; }
-      .hero h1 { font-size: 2rem; }
-      .hero-buttons { flex-direction: column; }
-      .hero-buttons .btn-primary-custom,
-      .hero-buttons .btn-outline-custom { width: 100%; justify-content: center; }
-      section { padding: 60px 0; }
-      .section-title { font-size: 1.7rem; }
-      .cta-final { padding: 50px 25px; }
-      .cta-final h2 { font-size: 1.6rem; }
-      .journey-list { flex-direction: column; gap: 12px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Autoescola Nova Tebas | Formação de Condutores em Nova Tebas - PR</title>
+<meta name="description" content="Autoescola Nova Tebas LTDA - formação de condutores, primeira habilitação, aulas teóricas e práticas em Nova Tebas - PR. CNPJ 67.293.941/0001-31.">
+<meta property="og:title" content="Autoescola Nova Tebas | Formação de Condutores">
+<meta property="og:description" content="Primeira habilitação, aulas teóricas e práticas em Nova Tebas - PR.">
+<meta property="og:type" content="website">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;color:#18212b;background:#f6f8fa;line-height:1.6}
+a{text-decoration:none;color:inherit}
+header{background:#fff;border-bottom:1px solid #e5e9ed;position:sticky;top:0;z-index:10}
+.nav{max-width:1150px;margin:auto;padding:17px 24px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:900;font-size:21px;color:#173a63}
+.brand span{color:#e3a900}
+nav{display:flex;gap:25px;font-size:14px;font-weight:700}
+nav a:hover{color:#d49d00}
+.hero{background:linear-gradient(135deg,#173a63,#245a91);color:#fff}
+.hero-in{max-width:1150px;margin:auto;padding:85px 24px 95px;display:grid;grid-template-columns:1.15fr .85fr;gap:55px;align-items:center}
+.eyebrow{display:inline-block;background:#f4c542;color:#172b40;padding:7px 13px;border-radius:5px;font-weight:900;font-size:12px;letter-spacing:1px}
+.hero h1{font-size:clamp(42px,6vw,68px);line-height:1.02;margin:20px 0}
+.hero p{font-size:18px;color:#dbe7f2;max-width:620px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{padding:14px 22px;border-radius:7px;font-weight:800;display:inline-block}
+.gold{background:#f4c542;color:#172b40}
+.outline{border:1px solid #fff;color:#fff}
+.dashboard{background:#fff;color:#1b2733;border-radius:18px;padding:30px;box-shadow:0 25px 55px #0b28484d}
+.dashboard h2{font-size:27px;margin-bottom:7px}
+.dashboard>p{color:#657383;margin-bottom:18px}
+.line{padding:14px 0;border-bottom:1px solid #e9edf1;font-weight:700;display:flex;gap:12px}
+.line:last-child{border:0}
+.mark{color:#d29d00;font-size:19px}
+section{padding:80px 24px}
+.container{max-width:1150px;margin:auto}
+.title{text-align:center;max-width:700px;margin:0 auto 45px}
+.title h2{font-size:38px;line-height:1.15;color:#173a63}
+.title p{color:#697785;margin-top:10px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;border:1px solid #e2e7ec;border-radius:14px;padding:27px;transition:.2s}
+.card:hover{box-shadow:0 14px 32px #173a6312;transform:translateY(-3px)}
+.ico{font-size:28px;margin-bottom:14px}
+.card h3{font-size:20px;margin-bottom:8px;color:#173a63}
+.card p{color:#697785;font-size:15px}
+.about{background:#eef3f7}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.about h2{font-size:41px;line-height:1.12;color:#173a63;margin:16px 0}
+.about p{color:#63717e}
+.benefits{margin-top:24px;display:grid;gap:12px}
+.benefit{background:#fff;border-radius:9px;padding:13px 16px;font-weight:700}
+.benefit b{color:#d19d00;margin-right:8px}
+.info{background:#173a63;color:#fff;border-radius:18px;padding:35px}
+.info h3{font-size:27px;margin-bottom:12px}
+.info p{color:#d7e2ec}
+.info-list{margin-top:18px;display:grid;gap:10px;font-size:14px}
+.info-list div{background:#244f7c;border-radius:8px;padding:10px 14px}
+.info-list b{color:#f4c542}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:25px}
+.stat{background:#244f7c;border-radius:10px;padding:18px}
+.stat strong{display:block;color:#f4c542;font-size:27px}
+.stat span{font-size:12px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{background:#fff;border-top:4px solid #f4c542;padding:23px;border-radius:9px;box-shadow:0 5px 18px #162b3c0a}
+.step .num{font-size:30px;font-weight:900;color:#173a63}
+.step h3{margin:6px 0}
+.step p{font-size:14px;color:#687683}
+.faq{max-width:850px;margin:auto}
+.faq details{background:#fff;border:1px solid #e2e7ec;border-radius:9px;margin-bottom:11px;padding:17px 20px}
+.faq summary{font-weight:800;cursor:pointer;color:#173a63}
+.faq p{color:#697785;padding-top:10px}
+.cta{background:#f4c542;text-align:center;color:#172b40;padding:72px 24px}
+.cta h2{font-size:42px}
+.cta p{max-width:650px;margin:10px auto 24px}
+.dark{background:#173a63;color:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:35px;text-align:left}
+.contact-card{background:#fff;border:1px solid #e2e7ec;border-radius:14px;padding:26px}
+.contact-card h3{color:#173a63;margin-bottom:12px;font-size:20px}
+.contact-card p{color:#5b6873;font-size:15px;margin-bottom:6px}
+.contact-card a{color:#173a63;font-weight:700}
+.contact-card a:hover{color:#d49d00}
+footer{background:#101923;color:#b9c4cd;text-align:center;padding:28px 20px;font-size:13px}
+footer p{margin:4px 0}
+@media(max-width:800px){
+  nav{display:none}
+  .hero-in,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-in{padding:65px 24px}
+  .cards{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .cards,.steps,.stats{grid-template-columns:1fr}
+  .hero h1{font-size:43px}
+  .about h2,.cta h2{font-size:32px}
+  .actions{flex-direction:column}
+  .actions .btn{text-align:center}
+}
+</style>
 </head>
 <body>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="#home">
-        <span class="logo-icon"><i class="fas fa-car"></i></span>
-        Autoescola <span class="text-primary">Nova Tebas</span>
-      </a>
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
-          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-          <li class="nav-item"><a class="nav-link" href="#passos">Como Iniciar</a></li>
-          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-            <a class="btn-nav-cta" href="https://wa.me/5542999054000" target="_blank">
-              <i class="fab fa-whatsapp me-1"></i> WhatsApp
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<header>
+  <div class="nav">
+    <a class="brand" href="#inicio">NOVA <span>TEBAS</span>
+      <small style="display:block;font-size:9px;letter-spacing:2px;color:#75818c">AUTOESCOLA</small>
+    </a>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#etapas">Etapas</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- ===== HERO ===== -->
-  <section id="home" class="hero">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-8">
-          <span class="hero-badge">FORMAÇÃO DE CONDUTORES</span>
-          <h1>Prepare-se para conquistar sua <span class="highlight">CNH.</span></h1>
-          <p class="lead">
-            A Autoescola Nova Tebas oferece orientação e preparação para quem está começando 
-            ou avançando no processo de habilitação.
-          </p>
-          <div class="hero-buttons">
-            <a href="https://wa.me/5542999054000" class="btn-primary-custom" target="_blank">
-              <i class="fab fa-whatsapp"></i> Falar pelo WhatsApp
-            </a>
-            <a href="#servicos" class="btn-outline-custom">
-              Conhecer Serviços <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-in">
+      <div>
+        <span class="eyebrow">FORMAÇÃO DE CONDUTORES</span>
+        <h1>Conquiste sua CNH em Nova Tebas.</h1>
+        <p>A <strong>Autoescola Nova Tebas LTDA</strong> oferece orientação e preparação para quem está começando ou avançando no processo de habilitação, com atendimento próximo e personalizado.</p>
+        <div class="actions">
+          <a class="btn gold" href="https://wa.me/5542999054000" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a class="btn outline" href="#servicos">Conhecer serviços</a>
         </div>
       </div>
+      <div class="dashboard">
+        <h2>Sua jornada começa aqui</h2>
+        <p>Confira alguns dos principais serviços de formação.</p>
+        <div class="line"><span class="mark">✓</span> Primeira habilitação</div>
+        <div class="line"><span class="mark">✓</span> Aulas teóricas</div>
+        <div class="line"><span class="mark">✓</span> Aulas práticas</div>
+        <div class="line"><span class="mark">✓</span> Preparação para avaliações</div>
+        <div class="line"><span class="mark">✓</span> Orientação durante o processo</div>
+      </div>
     </div>
   </section>
 
-  <!-- ===== JORNADA ===== -->
-  <section class="journey py-5">
-    <div class="container">
-      <h3>Sua jornada começa aqui</h3>
-      <p class="text-muted mb-4">Confira alguns dos principais serviços de formação.</p>
-      <ul class="journey-list">
-        <li><i class="fas fa-check-circle"></i> Primeira habilitação</li>
-        <li><i class="fas fa-check-circle"></i> Aulas teóricas</li>
-        <li><i class="fas fa-check-circle"></i> Aulas práticas</li>
-        <li><i class="fas fa-check-circle"></i> Preparação para avaliações</li>
-        <li><i class="fas fa-check-circle"></i> Orientação durante o processo</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ===== SERVIÇOS ===== -->
+  <!-- SERVIÇOS -->
   <section id="servicos">
     <div class="container">
-      <div class="text-center mb-5">
-        <span class="section-tag">Nossos Serviços</span>
-        <h2 class="section-title">Serviços para sua formação</h2>
-        <p class="section-subtitle">Conheça as principais opções de atendimento da Autoescola Nova Tebas.</p>
+      <div class="title">
+        <h2>Serviços para sua formação</h2>
+        <p>Conheça as principais opções de atendimento da Autoescola Nova Tebas.</p>
       </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="card-service">
-            <div class="icon-box"><i class="fas fa-car-side"></i></div>
-            <h4>Aulas Práticas</h4>
-            <p>Treinamento para desenvolver segurança, controle e confiança na condução do veículo.</p>
-          </div>
+      <div class="cards">
+        <article class="card"><div class="ico">🚗</div><h3>Aulas Práticas</h3><p>Treinamento para desenvolver segurança, controle e confiança na condução do veículo.</p></article>
+        <article class="card"><div class="ico">📚</div><h3>Aulas Teóricas</h3><p>Conteúdos de apoio para compreender as regras e os fundamentos do trânsito.</p></article>
+        <article class="card"><div class="ico">🪪</div><h3>Primeira Habilitação</h3><p>Orientação para quem deseja iniciar o processo para obter a CNH.</p></article>
+        <article class="card"><div class="ico">🏍️</div><h3>Categorias</h3><p>Consulte as categorias de habilitação e escolha a formação adequada ao seu objetivo.</p></article>
+        <article class="card"><div class="ico">📝</div><h3>Preparação</h3><p>Reforce seus conhecimentos e organize sua preparação para as avaliações.</p></article>
+        <article class="card"><div class="ico">💬</div><h3>Atendimento</h3><p>Fale com a equipe para tirar dúvidas sobre matrícula, aulas e etapas.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="about" id="sobre">
+    <div class="container about-grid">
+      <div>
+        <span class="eyebrow">SOBRE A AUTOESCOLA</span>
+        <h2>Mais clareza em cada etapa da sua formação.</h2>
+        <p>A Autoescola Nova Tebas LTDA atua na formação e preparação de condutores em Nova Tebas – PR, buscando oferecer informações e acompanhamento ao longo da jornada para a habilitação.</p>
+        <div class="benefits">
+          <div class="benefit"><b>✓</b> Atendimento e orientação</div>
+          <div class="benefit"><b>✓</b> Formação teórica e prática</div>
+          <div class="benefit"><b>✓</b> Preparação para avaliações</div>
         </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="card-service">
-            <div class="icon-box"><i class="fas fa-book-open"></i></div>
-            <h4>Aulas Teóricas</h4>
-            <p>Conteúdos de apoio para compreender as regras e os fundamentos do trânsito.</p>
-          </div>
+      </div>
+      <div class="info">
+        <h3>Comece com o próximo passo</h3>
+        <p>Entre em contato para consultar categorias disponíveis, condições de matrícula, horários e demais informações sobre a formação.</p>
+        <div class="info-list">
+          <div><b>Razão Social:</b> Auto Escola Nova Tebas LTDA</div>
+          <div><b>CNPJ:</b> 67.293.941/0001-31</div>
+          <div><b>Endereço:</b> Rua Copacabana, 300 – Sala 2, Centro</div>
+          <div><b>Cidade:</b> Nova Tebas – PR • CEP 85250-000</div>
         </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="card-service">
-            <div class="icon-box"><i class="fas fa-id-card"></i></div>
-            <h4>Primeira Habilitação</h4>
-            <p>Orientação para quem deseja iniciar o processo para obter a CNH.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="card-service">
-            <div class="icon-box"><i class="fas fa-motorcycle"></i></div>
-            <h4>Categorias</h4>
-            <p>Consulte as categorias de habilitação e escolha a formação adequada ao seu objetivo.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="card-service">
-            <div class="icon-box"><i class="fas fa-clipboard-check"></i></div>
-            <h4>Preparação</h4>
-            <p>Reforce seus conhecimentos e organize sua preparação para as avaliações.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="card-service">
-            <div class="icon-box"><i class="fas fa-comments"></i></div>
-            <h4>Atendimento</h4>
-            <p>Fale com a equipe para tirar dúvidas sobre matrícula, aulas e etapas.</p>
-          </div>
+        <div class="stats">
+          <div class="stat"><strong>CNH</strong><span>Foco na sua formação</span></div>
+          <div class="stat"><strong>CFC</strong><span>Orientação especializada</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== SOBRE ===== -->
-  <section id="sobre" class="py-5">
+  <!-- ETAPAS -->
+  <section id="etapas">
     <div class="container">
-      <div class="about-section">
-        <div class="row align-items-center g-5">
-          <div class="col-lg-6">
-            <span class="section-tag">SOBRE A AUTOESCOLA</span>
-            <h2 class="section-title">Mais clareza em cada etapa da sua formação.</h2>
-            <p class="text-muted">
-              A Autoescola Nova Tebas atua na formação e preparação de condutores, 
-              buscando oferecer informações e acompanhamento ao longo da jornada para a habilitação.
-            </p>
-            <ul class="about-list">
-              <li><i class="fas fa-check-circle"></i> Atendimento e orientação</li>
-              <li><i class="fas fa-check-circle"></i> Formação teórica e prática</li>
-              <li><i class="fas fa-check-circle"></i> Preparação para avaliações</li>
-            </ul>
-          </div>
-          <div class="col-lg-6">
-            <h4 class="mb-3">Comece com o próximo passo</h4>
-            <p class="text-muted mb-4">
-              Entre em contato para consultar categorias disponíveis, condições de matrícula, 
-              horários e demais informações sobre a formação.
-            </p>
-            <div>
-              <span class="badge-pill-custom"><i class="fas fa-id-card"></i> CNH - Foco na sua formação</span>
-              <span class="badge-pill-custom"><i class="fas fa-graduation-cap"></i> CFC - Orientação especializada</span>
-            </div>
-            <a href="https://wa.me/5542999054000" class="btn-primary-custom mt-4" target="_blank">
-              <i class="fab fa-whatsapp"></i> Falar pelo WhatsApp
-            </a>
-          </div>
+      <div class="title">
+        <h2>Como iniciar sua jornada</h2>
+        <p>Entenda de forma simples os primeiros passos.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="num">01</div><h3>Contato</h3><p>Converse com a equipe e tire suas dúvidas.</p></div>
+        <div class="step"><div class="num">02</div><h3>Escolha</h3><p>Confira categorias e opções disponíveis.</p></div>
+        <div class="step"><div class="num">03</div><h3>Matrícula</h3><p>Receba as orientações para iniciar o processo.</p></div>
+        <div class="step"><div class="num">04</div><h3>Formação</h3><p>Faça as aulas e prepare-se para as avaliações.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="background:#eef3f7">
+    <div class="container">
+      <div class="title">
+        <h2>Perguntas frequentes</h2>
+        <p>Informações iniciais para ajudar você.</p>
+      </div>
+      <div class="faq">
+        <details><summary>Como começar a primeira habilitação?</summary><p>Entre em contato com a Autoescola Nova Tebas para conhecer as condições de matrícula e as etapas necessárias.</p></details>
+        <details><summary>A autoescola oferece aulas teóricas e práticas?</summary><p>Sim. Consulte a equipe sobre as aulas e categorias disponíveis para sua formação.</p></details>
+        <details><summary>Quais categorias estão disponíveis?</summary><p>As categorias podem variar. Fale com o atendimento para confirmar as opções disponíveis.</p></details>
+        <details><summary>Como posso solicitar informações?</summary><p>Use o botão de WhatsApp na seção de contato ou envie um e-mail para oliveiratetel@hotmail.com.</p></details>
+        <details><summary>Onde a autoescola está localizada?</summary><p>Rua Copacabana, 300 – Sala 2, Centro, Nova Tebas – PR, CEP 85250-000.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="cta" id="contato">
+    <div class="container">
+      <h2>Está pronto para começar?</h2>
+      <p>Fale com a Autoescola Nova Tebas LTDA e saiba mais sobre sua formação de condutor.</p>
+      <div class="actions" style="justify-content:center">
+        <a class="btn dark" href="https://wa.me/5542999054000" target="_blank" rel="noopener">💬 WhatsApp (42) 99905-4000</a>
+        <a class="btn dark" href="mailto:oliveiratetel@hotmail.com" style="background:#173a63;color:#fff">✉️ Enviar e-mail</a>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>📞 Telefone e WhatsApp</h3>
+          <p><a href="tel:+5542999054000">(42) 99905-4000</a></p>
+          <p><a href="https://wa.me/5542999054000" target="_blank" rel="noopener">Falar pelo WhatsApp</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>✉️ E-mail</h3>
+          <p><a href="mailto:oliveiratetel@hotmail.com">oliveiratetel@hotmail.com</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>📍 Endereço</h3>
+          <p>Rua Copacabana, 300 – Sala 2</p>
+          <p>Centro • Nova Tebas – PR</p>
+          <p>CEP 85250-000</p>
+        </div>
+        <div class="contact-card">
+          <h3>🏢 Dados de Registro</h3>
+          <p><strong>Razão Social:</strong> Auto Escola Nova Tebas LTDA</p>
+          <p><strong>Nome Fantasia:</strong> Autoescola Nova Tebas</p>
+          <p><strong>CNPJ:</strong> 67.293.941/0001-31</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== PASSOS ===== -->
-  <section id="passos" class="py-5" style="background: var(--light);">
-    <div class="container">
-      <div class="text-center mb-5">
-        <span class="section-tag">COMO INICIAR</span>
-        <h2 class="section-title">Como iniciar sua jornada</h2>
-        <p class="section-subtitle">Entenda de forma simples os primeiros passos.</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
-          <div class="step-card">
-            <div class="step-number">01</div>
-            <h4>Contato</h4>
-            <p>Converse com a equipe e tire suas dúvidas.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="step-card">
-            <div class="step-number">02</div>
-            <h4>Escolha</h4>
-            <p>Confira categorias e opções disponíveis.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="step-card">
-            <div class="step-number">03</div>
-            <h4>Matrícula</h4>
-            <p>Receba as orientações para iniciar o processo.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="step-card">
-            <div class="step-number">04</div>
-            <h4>Formação</h4>
-            <p>Faça as aulas e prepare-se para as avaliações.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+</main>
 
-  <!-- ===== FAQ ===== -->
-  <section id="faq" class="faq-section">
-    <div class="container">
-      <div class="text-center mb-5">
-        <span class="section-tag">DÚVIDAS</span>
-        <h2 class="section-title">Perguntas frequentes</h2>
-        <p class="section-subtitle">Informações iniciais para ajudar você.</p>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="accordion" id="faqAccordion">
+<footer>
+  <p><strong>Autoescola Nova Tebas LTDA</strong> — CNPJ 67.293.941/0001-31</p>
+  <p>Rua Copacabana, 300 – Sala 2, Centro • Nova Tebas – PR • CEP 85250-000</p>
+  <p>(42) 99905-4000 • oliveiratetel@hotmail.com</p>
+  <p style="margin-top:8px">© 2026 Autoescola Nova Tebas — Todos os direitos reservados.</p>
+</footer>
 
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                  Como começar a primeira habilitação?
-                </button>
-              </h2>
-              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                  Entre em contato com a Autoescola Nova Tebas para conhecer as condições de matrícula e as etapas necessárias.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                  A autoescola oferece aulas teóricas e práticas?
-                </button>
-              </h2>
-              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                  Sim. Consulte a equipe sobre as aulas e categorias disponíveis para sua formação.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                  Quais categorias estão disponíveis?
-                </button>
-              </h2>
-              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                  As categorias podem variar. Fale com o atendimento para confirmar as opções disponíveis.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                  Como posso solicitar informações?
-                </button>
-              </h2>
-              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                  Use o botão de WhatsApp na seção de contato para falar com a equipe.
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTATO ===== -->
-  <section id="contato">
-    <div class="container">
-      <div class="text-center mb-5">
-        <span class="section-tag">CONTATO</span>
-        <h2 class="section-title">Entre em contato</h2>
-        <p class="section-subtitle">Estamos à disposição para tirar suas dúvidas.</p>
-      </div>
-      <div class="row g-4 justify-content-center">
-        <div class="col-md-6 col-lg-4">
-          <div class="contact-card">
-            <div class="icon-circle"><i class="fab fa-whatsapp"></i></div>
-            <h5>WhatsApp</h5>
-            <p>(42) 99905-4000</p>
-            <a href="https://wa.me/5542999054000" target="_blank" class="btn-primary-custom btn-sm">Conversar</a>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="contact-card">
-            <div class="icon-circle"><i class="fas fa-envelope"></i></div>
-            <h5>E-mail</h5>
-            <p>oliveiratetel@hotmail.com</p>
-            <a href="mailto:oliveiratetel@hotmail.com" class="btn-primary-custom btn-sm">Enviar E-mail</a>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="contact-card">
-            <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
-            <h5>Endereço</h5>
-            <p>Rua Copacabana, 300 - Sala 2<br>Centro - Nova Tebas/PR</p>
-            <a href="https://maps.google.com/?q=Rua+Copacabana+300+Nova+Tebas+PR" target="_blank" class="btn-primary-custom btn-sm">Ver no Mapa</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA FINAL ===== -->
-  <section class="pb-5">
-    <div class="container">
-      <div class="cta-final">
-        <h2>Está pronto para começar?</h2>
-        <p>Fale com a Autoescola Nova Tebas e saiba mais sobre sua formação de condutor.</p>
-        <a href="https://wa.me/5542999054000" class="btn-cta-white" target="_blank">
-          <i class="fab fa-whatsapp"></i> Falar pelo WhatsApp
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== RODAPÉ ===== -->
-  <footer>
-    <div class="container">
-      <div class="row g-4">
-        <!-- Informações de Registro -->
-        <div class="col-lg-4 col-md-6">
-          <h5><i class="fas fa-building"></i> Informações de Registro</h5>
-          <p><strong style="color:#e2e8f0;">CNPJ:</strong> 67.293.941/0001-31</p>
-          <p><strong style="color:#e2e8f0;">Razão Social:</strong> Auto Escola Nova Tebas LTDA</p>
-          <p><strong style="color:#e2e8f0;">Nome Fantasia:</strong> Autoescola Nova Tebas</p>
-        </div>
-
-        <!-- Contatos -->
-        <div class="col-lg-4 col-md-6">
-          <h5><i class="fas fa-address-book"></i> Contatos</h5>
-          <p>
-            <i class="fas fa-envelope me-2"></i>
-            <a href="mailto:oliveiratetel@hotmail.com">oliveiratetel@hotmail.com</a>
-          </p>
-          <p>
-            <i class="fas fa-phone me-2"></i>
-            <a href="tel:+5542999054000">(42) 99905-4000</a> (Ligar)
-          </p>
-          <p>
-            <i class="fab fa-whatsapp me-2"></i>
-            <a href="https://wa.me/5542999054000" target="_blank">(42) 99905-4000</a> (WhatsApp)
-          </p>
-        </div>
-
-        <!-- Localização -->
-        <div class="col-lg-4 col-md-6">
-          <h5><i class="fas fa-map-pin"></i> Localização</h5>
-          <p><strong style="color:#e2e8f0;">Logradouro:</strong> Rua Copacabana, 300</p>
-          <p><strong style="color:#e2e8f0;">Complemento:</strong> Sala 2</p>
-          <p><strong style="color:#e2e8f0;">Bairro:</strong> Centro</p>
-          <p><strong style="color:#e2e8f0;">CEP:</strong> 85250-000</p>
-          <p><strong style="color:#e2e8f0;">Município:</strong> Nova Tebas</p>
-          <p><strong style="color:#e2e8f0;">Estado:</strong> Paraná</p>
-        </div>
-
-        <!-- Correspondência -->
-        <div class="col-12 mt-4">
-          <h5><i class="fas fa-mail-bulk"></i> Para Correspondência</h5>
-          <p>
-            Autoescola Nova Tebas Auto Escola Nova Tebas LTDA<br>
-            Rua Copacabana 300 Sala 2<br>
-            Centro<br>
-            Nova Tebas PR<br>
-            85250-000
-          </p>
-        </div>
-      </div>
-
-      <!-- Rodapé inferior -->
-      <div class="footer-bottom">
-        <p class="mb-0">&copy; 2026 Autoescola Nova Tebas - Todos os direitos reservados.</p>
-        <a href="#" class="privacy-link" data-bs-toggle="modal" data-bs-target="#politicaPrivacidade">
-          <i class="fas fa-shield-alt"></i> Política de Privacidade
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ===== MODAL POLÍTICA DE PRIVACIDADE ===== -->
-  <div class="modal fade" id="politicaPrivacidade" tabindex="-1" aria-labelledby="politicaLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-      <div class="modal-content" style="border-radius: 16px; border: none;">
-        <div class="modal-header" style="border-bottom: 1px solid var(--border);">
-          <h5 class="modal-title fw-bold" id="politicaLabel">
-            <i class="fas fa-shield-alt text-primary me-2"></i>Política de Privacidade
-          </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-        </div>
-        <div class="modal-body" style="padding: 30px;">
-          <p><strong>Última atualização:</strong> 23 de setembro de 2026</p>
-          <p>A <strong>Autoescola Nova Tebas</strong>, inscrita no CNPJ 67.293.941/0001-31, valoriza a sua privacidade e está comprometida em proteger os dados pessoais que você compartilha conosco.</p>
-
-          <h6 class="mt-4 fw-bold">1. Coleta de Informações</h6>
-          <p>Coletamos apenas as informações necessárias para prestação dos nossos serviços de formação de condutores, como nome, e-mail, telefone, endereço e documentos exigidos pelos órgãos de trânsito.</p>
-
-          <h6 class="mt-4 fw-bold">2. Uso das Informações</h6>
-          <p>Seus dados são utilizados exclusivamente para:</p>
-          <ul>
-            <li>Processar matrículas e documentos junto ao DETRAN;</li>
-            <li>Entrar em contato sobre aulas, agendamentos e informações relevantes;</li>
-            <li>Cumprir obrigações legais e regulatórias.</li>
-          </ul>
-
-          <h6 class="mt-4 fw-bold">3. Compartilhamento de Dados</h6>
-          <p>Não vendemos ou compartilhamos seus dados com terceiros, exceto quando necessário para cumprimento de exigências legais junto aos órgãos competentes (DETRAN, Receita Federal, etc.).</p>
-
-          <h6 class="mt-4 fw-bold">4. Segurança</h6>
-          <p>Adotamos medidas técnicas e administrativas para proteger seus dados contra acessos não autorizados, perda ou alteração.</p>
-
-          <h6 class="mt-4 fw-bold">5. Seus Direitos</h6>
-          <p>Você pode solicitar a qualquer momento a consulta, correção ou exclusão dos seus dados pessoais, entrando em contato pelo e-mail <a href="mailto:oliveiratetel@hotmail.com">oliveiratetel@hotmail.com</a> ou pelo telefone (42) 99905-4000.</p>
-
-          <h6 class="mt-4 fw-bold">6. Cookies</h6>
-          <p>Nosso site pode utilizar cookies para melhorar a experiência de navegação. Você pode desativá-los nas configurações do seu navegador.</p>
-
-          <h6 class="mt-4 fw-bold">7. Alterações nesta Política</h6>
-          <p>Reservamo-nos o direito de atualizar esta política periodicamente. Recomendamos que você a revise regularmente.</p>
-
-          <p class="mt-4">Ao utilizar nossos serviços, você concorda com os termos desta Política de Privacidade.</p>
-        </div>
-        <div class="modal-footer" style="border-top: 1px solid var(--border);">
-          <button type="button" class="btn-primary-custom" data-bs-dismiss="modal">Entendi</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap 5 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
